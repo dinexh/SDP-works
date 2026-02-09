@@ -1,0 +1,135 @@
+.file-activity-chart {
+    padding: 1.5rem;
+}
+
+.chart-controls {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+}
+
+.chart-tabs {
+    display: flex;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+}
+
+.chart-tab {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #64748b;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.chart-tab:hover {
+    background-color: #f1f5f9;
+}
+
+.chart-tab.active {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.chart-container {
+    height: 240px;
+    margin-top: 1.5rem;
+}
+
+.chart-legend {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+.legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+}
+
+.upload-color {
+    background-color: #3b82f6;
+}
+
+.download-color {
+    background-color: #10b981;
+}
+
+.chart-bars {
+    display: flex;
+    height: 180px;
+    align-items: flex-end;
+    gap: 0.25rem;
+    border-bottom: 1px solid #e2e8f0;
+    padding-top: 1rem;
+}
+
+.chart-bar-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.chart-label {
+    font-size: 0.7rem;
+    color: #64748b;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+.chart-bars-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 4px;
+}
+
+.chart-bar {
+    width: 40%;
+    transition: height 0.3s ease;
+    position: relative;
+    border-radius: 3px 3px 0 0;
+    min-height: 4px;
+}
+
+.upload-bar {
+    background-color: #3b82f6;
+}
+
+.download-bar {
+    background-color: #10b981;
+}
+
+.bar-value {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.7rem;
+    color: #64748b;
+    font-weight: 500;
+}
+
+@media (max-width: 600px) {
+    .chart-bar {
+        width: 45%;
+    }
+} 

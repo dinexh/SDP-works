@@ -1,5 +1,7 @@
 # SportSync
 
+Course: 23CS06EF - MERN STACK WEB DEVELOPMENT
+
 SportSync is a modern sports event management and scheduling platform that helps organize and coordinate sports activities, matches, and tournaments.
 
 ## Features

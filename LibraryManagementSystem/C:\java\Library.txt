@@ -1,0 +1,1 @@
+Book [id=1234567, name=Book1, author=Author1, price=10.0]

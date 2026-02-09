@@ -1,0 +1,60 @@
+/* Add dashboard content styling */
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+}
+
+.dashboard-content {
+  display: flex;
+  flex: 1;
+  padding-top: 70px; /* Match Header height */
+}
+
+.dashboard-content-area {
+  flex: 1;
+  padding: 2rem;
+  margin-left: 250px; /* Match Sidebar width */
+}
+
+.dashboard-page-header {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.page-header-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background-color: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+  margin-bottom: 0.75rem;
+}
+
+.page-header-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #3b82f6;
+  margin: 0;
+}
+
+.page-header-description {
+  font-size: 1rem;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .dashboard-content-area {
+    margin-left: 0;
+    padding: 1.5rem;
+  }
+}

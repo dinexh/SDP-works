@@ -1,0 +1,930 @@
+/* Files List Container */
+.files-list-container {
+    background-color: var(--card-bg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    margin-bottom: 2rem;
+    border: 1px solid var(--border-color);
+}
+
+/* Files Toolbar */
+.files-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem;
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--bg-light);
+}
+
+.files-filter {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.filter-icon {
+    color: #3b82f6;
+    font-size: 1.1rem;
+}
+
+.files-filter label {
+    font-weight: 500;
+    color: #3b82f6;
+}
+
+.files-filter select {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background-color: var(--bg-lighter);
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: var(--shadow-sm);
+}
+
+.files-filter select:hover, .files-filter select:focus {
+    border-color: #3b82f6;
+    outline: none;
+}
+
+.refresh-button {
+    background-color: var(--bg-light);
+    color: #3b82f6;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: var(--radius-md);
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: var(--shadow-sm);
+}
+
+.refresh-button:hover {
+    background-color: rgba(59, 130, 246, 0.1);
+    color: #2563eb;
+}
+
+/* Files Table */
+.files-table-container {
+    overflow-x: auto;
+    max-width: 100%;
+    background-color: var(--card-bg);
+}
+
+.files-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.files-table th, .files-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-light);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--text-primary);
+}
+
+.files-table th {
+    font-weight: 600;
+    color: #3b82f6;
+    background-color: var(--bg-light);
+    cursor: pointer;
+    transition: background-color 0.2s;
+    position: relative;
+}
+
+/* Table header widths and ordering */
+.files-table th:nth-child(1) {  /* Name */
+    min-width: 220px;
+    max-width: 250px;
+}
+
+.files-table th:nth-child(2) {  /* Size */
+    width: 100px;
+}
+
+.files-table th:nth-child(3) {  /* Owner */
+    width: 150px;
+}
+
+.files-table th:nth-child(4) {  /* Access */
+    width: 100px;
+}
+
+.files-table th:nth-child(5) {  /* Type */
+    width: 60px;
+}
+
+.files-table th:nth-child(6) {  /* Shared */
+    width: 80px;
+    text-align: center;
+}
+
+.files-table th:nth-child(7) {  /* Actions */
+    width: 150px;
+    text-align: center;
+}
+
+.files-table th:hover {
+    background-color: var(--primary-light);
+}
+
+.files-table th.sorted {
+    color: var(--primary-dark);
+    background-color: var(--primary-light);
+}
+
+.sort-arrow {
+    margin-left: 0.5rem;
+    font-size: 0.8rem;
+}
+
+.files-table tbody tr {
+    transition: background-color 0.2s;
+}
+
+.files-table tbody tr:hover {
+    background-color: var(--bg-light);
+}
+.no-files{
+    background-color: var(--bg-color);
+    background-color: red;
+    width: 100%;
+}
+/* File Type Cell */
+.file-type-cell {
+    width: 10px;
+    padding-left: 2px;
+    padding-right: 0;
+    max-width: 10px;
+}
+
+.file-icon {
+    font-size: 1.1rem;
+    display: inline-block;
+}
+
+/* File Name Cell */
+.file-name-cell {
+    max-width: 200px;
+}
+
+.file-name {
+    background: rgba(59, 130, 246, 0.2);
+    color: #3b82f6;
+    padding: 0.4rem 0.8rem;
+    border-radius: var(--radius-sm);
+    font-weight: 500;
+    font-size: 0.9rem;
+    display: inline-block;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-shadow: var(--shadow-sm);
+}
+
+[data-theme='dark'] .file-name {
+    background: rgba(59, 130, 246, 0.3);
+    color: #60a5fa;
+}
+
+/* Table header and row styles - ensure text is visible */
+.files-table th, .files-table td {
+    color: var(--text-primary);
+}
+
+.files-table th {
+    color: #3b82f6;
+}
+
+/* Fix the file name text */
+.file-name-text {
+    color: #3b82f6;
+}
+
+[data-theme='dark'] .file-name-text {
+    color: #60a5fa;
+}
+
+/* Access badges */
+.access-public {
+    background-color: rgba(16, 185, 129, 0.2);
+    color: #10b981;
+}
+
+.access-private {
+    background-color: rgba(245, 158, 11, 0.2);
+    color: #f59e0b;
+}
+
+[data-theme='dark'] .access-public {
+    background-color: rgba(16, 185, 129, 0.3);
+    color: #34d399;
+}
+
+[data-theme='dark'] .access-private {
+    background-color: rgba(245, 158, 11, 0.3);
+    color: #fbbf24;
+}
+
+/* Owner Cell */
+.owner-cell {
+    width: 150px;
+}
+
+.owner-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.owner-name {
+    color: var(--text-primary);
+}
+
+.owner-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: var(--primary-light);
+    border: 1px solid var(--border-color);
+}
+
+.owner-avatar-placeholder {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-light);
+    color: var(--primary-color);
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid var(--border-color);
+}
+
+/* Access Cell */
+.access-cell {
+    width: 100px;
+}
+
+.access-public, .access-private {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.access-public {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: var(--success-color);
+}
+
+.access-private {
+    background-color: rgba(245, 158, 11, 0.1);
+    color: var(--warning-color);
+}
+
+/* Action Buttons */
+.actions-cell {
+    width: 150px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.file-action-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--bg-light);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.file-action-btn svg {
+    font-size: 1rem;
+}
+
+.file-action-btn:hover {
+    background-color: var(--primary-light);
+    color: var(--primary-color);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+}
+
+[data-theme='dark'] .file-action-btn:hover {
+    color: #60a5fa;
+    background-color: rgba(59, 130, 246, 0.2);
+}
+
+.file-action-btn.star {
+    color: var(--text-secondary);
+}
+
+.file-action-btn.star.starred {
+    background-color: rgba(245, 158, 11, 0.1);
+    color: var(--warning-color);
+}
+
+.file-action-btn.star.starred svg {
+    fill: var(--warning-color);
+}
+
+.file-action-btn.star:hover {
+    color: var(--warning-color);
+}
+
+.file-action-btn.view {
+    color: var(--text-secondary);
+}
+
+.file-action-btn.view:hover {
+    color: var(--info-color);
+    background-color: var(--primary-light);
+}
+
+.file-action-btn.delete {
+    color: var(--text-secondary);
+}
+
+.file-action-btn.delete:hover {
+    color: var(--danger-color);
+    background-color: rgba(239, 68, 68, 0.1);
+}
+
+/* Loading State */
+.files-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    color: #6b7280;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.files-loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #dbeafe;
+    border-top: 5px solid #3b82f6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Error State */
+.files-error {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #ef4444;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.retry-button {
+    margin-top: 1rem;
+    padding: 0.6rem 1.2rem;
+    background-color: #dbeafe;
+    color: #3b82f6;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.retry-button:hover {
+    background-color: #bfdbfe;
+}
+
+/* Empty State */
+.no-files {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    color: #6b7280;
+    text-align: center;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.no-files-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: #3b82f6;
+}
+
+.no-files h2 {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #3b82f6;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .files-table th, .files-table td {
+        padding: 0.8rem;
+    }
+    
+    .actions-cell {
+        width: 170px;
+    }
+    
+    .file-action-btn {
+        width: 30px;
+        height: 30px;
+        padding: 5px;
+    }
+}
+
+@media (max-width: 768px) {
+    .files-toolbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .files-filter {
+        width: 100%;
+    }
+    
+    .files-filter select {
+        flex-grow: 1;
+    }
+    
+    .refresh-button {
+        width: 100%;
+    }
+    
+    .files-table th:nth-child(4), 
+    .files-table td:nth-child(4),
+    .files-table th:nth-child(5), 
+    .files-table td:nth-child(5) {
+        display: none;
+    }
+    
+    .actions-cell {
+        width: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .files-table th:nth-child(3), 
+    .files-table td:nth-child(3),
+    .files-table th:nth-child(6), 
+    .files-table td:nth-child(6) {
+        display: none;
+    }
+    
+    .file-name-cell {
+        max-width: 150px;
+    }
+}
+
+/* File Viewer Overlay */
+.file-viewer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+
+}
+
+.file-viewer-container {
+    border-radius: 12px;
+    width: 90%;
+    max-width: 1200px;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.file-viewer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+    background-color: #f0f7ff;
+}
+
+.file-viewer-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.file-viewer-title .file-icon {
+    font-size: 1.8rem;
+}
+
+.file-viewer-title h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #3b82f6;
+    margin: 0;
+    max-width: 600px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.close-viewer-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #6b7280;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+
+.close-viewer-btn:hover {
+    background-color: rgba(107, 114, 128, 0.1);
+    color: #4b5563;
+}
+
+.file-viewer-content {
+    flex: 1;
+    background-color: #f8fafc;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.file-viewer-content iframe {
+    border: none;
+    background-color: white;
+}
+
+/* PDF Viewer Styles */
+.pdf-viewer-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: #f8fafc;
+}
+
+.pdf-viewer {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: white;
+}
+
+.pdf-viewer-fallback-message {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 0.5rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.pdf-viewer-fallback-message p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #3b82f6;
+}
+
+.pdf-viewer-fallback-message a {
+    color: #2563eb;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.pdf-viewer-fallback-message a:hover {
+    text-decoration: underline;
+}
+
+/* Image Viewer */
+.image-viewer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #f8fafc;
+    padding: 1rem;
+    overflow: auto;
+}
+
+/* Download Container for Other Files */
+.file-viewer-download-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #f8fafc;
+    padding: 2rem;
+    text-align: center;
+}
+
+.file-icon-large {
+    font-size: 5rem;
+    margin-bottom: 1.5rem;
+    color: #3b82f6;
+}
+
+.file-viewer-download-container p {
+    font-size: 1.1rem;
+    color: #6b7280;
+    margin-bottom: 1.5rem;
+}
+
+.file-download-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #3b82f6;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s;
+    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+}
+
+.file-download-button:hover {
+    background-color: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(37, 99, 235, 0.4);
+}
+
+/* PDF Loading */
+.pdf-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 2rem;
+    background-color: #f8fafc;
+}
+
+.pdf-loader {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #e5e7eb;
+    border-top: 4px solid #3b82f6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+.pdf-loading p {
+    color: #3b82f6;
+    font-weight: 500;
+}
+
+/* PDF Error */
+.pdf-error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 2rem;
+    background-color: #f8fafc;
+    text-align: center;
+}
+
+.pdf-error p {
+    color: #ef4444;
+    margin-bottom: 1rem;
+}
+
+.pdf-error p:last-of-type {
+    color: #4b5563;
+    margin-bottom: 1.5rem;
+}
+
+/* Download button container */
+.pdf-download-button-container {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 10;
+}
+
+/* PDF Error Actions */
+.pdf-error-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.pdf-view-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #3b82f6;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+}
+
+.pdf-view-button:hover {
+    background-color: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(37, 99, 235, 0.4);
+}
+
+.pdf-fallback {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 90%;
+    z-index: 2;
+}
+
+.pdf-fallback p {
+    margin: 0;
+    color: #4b5563;
+}
+
+.pdf-fallback a {
+    color: #3b82f6;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.pdf-fallback a:hover {
+    text-decoration: underline;
+}
+
+/* PDF Link Button */
+.pdf-link-button {
+    background: none;
+    border: none;
+    color: #3b82f6;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: none;
+    font-size: inherit;
+}
+
+.pdf-link-button:hover {
+    text-decoration: underline;
+}
+
+/* React-PDF Viewer Styles */
+.pdf-document-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f1f5f9;
+    overflow: auto;
+    position: relative;
+}
+
+.pdf-document {
+    display: flex;
+    justify-content: center;
+    max-height: 100%;
+}
+
+.pdf-page {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+}
+
+.pdf-page > canvas {
+    max-width: 100%;
+    height: auto !important;
+}
+
+.pdf-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 16px;
+    background-color: #f0f7ff;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.pdf-navigation {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pdf-zoom-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pdf-control-btn {
+    background: none;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #3b82f6;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+.pdf-control-btn:hover {
+    background-color: #e0e7ff;
+    border-color: #3b82f6;
+}
+
+.pdf-control-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pdf-page-info {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #4b5563;
+    min-width: 120px;
+    text-align: center;
+}
+
+.pdf-zoom-level {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #4b5563;
+    min-width: 60px;
+    text-align: center;
+}
+
+/* Override the file download button styles in PDF viewer */
+.pdf-controls .file-download-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+} 

@@ -1,0 +1,238 @@
+.share-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.share-modal {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.share-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.share-modal-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 400px;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+}
+
+.close-button:hover {
+    color: #333;
+}
+
+.share-link-section {
+    padding: 16px 20px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.share-link-container {
+    display: flex;
+    align-items: center;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.share-link-container svg {
+    margin-right: 10px;
+    color: #666;
+}
+
+.share-link-text {
+    flex: 1;
+    font-size: 14px;
+    color: #666;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.copy-link-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #3b82f6;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.copy-link-button:hover {
+    background-color: #e6e6e6;
+}
+
+.share-form {
+    padding: 16px 20px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.share-input-container {
+    display: flex;
+    align-items: center;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.share-input-container svg {
+    margin-right: 10px;
+    color: #666;
+}
+
+.share-input-container input {
+    flex: 1;
+    border: none;
+    background: none;
+    font-size: 14px;
+    outline: none;
+}
+
+.share-button {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.share-button:hover {
+    background-color: #2563eb;
+}
+
+.share-button:disabled {
+    background-color: #a5a5a5;
+    cursor: not-allowed;
+}
+
+.share-permissions {
+    margin-top: 12px;
+    padding: 8px 0 0;
+}
+
+.edit-permission-label {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #4b5563;
+    cursor: pointer;
+}
+
+.edit-permission-label input {
+    margin-right: 8px;
+}
+
+.edit-permission-label svg {
+    margin-right: 6px;
+    color: #3b82f6;
+}
+
+.shared-with-section {
+    padding: 16px 20px;
+}
+
+.shared-with-section h4 {
+    margin: 0 0 16px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.shared-users-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.shared-user-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    background-color: #f5f5f5;
+}
+
+.shared-user-info {
+    display: flex;
+    align-items: center;
+}
+
+.shared-user-info svg {
+    margin-right: 10px;
+    color: #666;
+}
+
+.user-name {
+    margin-left: 5px;
+    color: #666;
+}
+
+.permission-badge {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 8px;
+    background-color: #e0f2fe;
+    color: #0ea5e9;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.permission-badge svg {
+    margin-right: 4px;
+    color: #0ea5e9;
+}
+
+.revoke-access-button {
+    background-color: transparent;
+    color: #ef4444;
+    border: 1px solid #ef4444;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.revoke-access-button:hover {
+    background-color: #fef2f2;
+}
+
+.loading-shares, .no-shares {
+    color: #666;
+    text-align: center;
+    padding: 16px;
+} 
